@@ -1,16 +1,24 @@
 #include <iostream>
 #include <string>
 using namespace std;
-enum PokemonChoice{
+enum class PokemonChoice{
     Charmander, 
     Bulbasaur,
     Squirtle,
     invalidChoice
 };
 
+enum class PokemonType{
+    Fire,
+    Electric,
+    Water,
+    Earth,
+    Normal
+};
+
 int main() {
   string player_name;
-  PokemonChoice chosen_pokemon=invalidChoice;
+  PokemonChoice chosen_pokemon=PokemonChoice::invalidChoice;
 
   cout << "Professor Oak: Hello there! Welcome to the world of Pokemon!\n";
   cout << "Professor Oak: My name is Oak. People call me the Pokemon "
@@ -39,18 +47,18 @@ int main() {
 
   switch (choice) {
   case 1:
-    chosen_pokemon = Charmander;
+    chosen_pokemon = PokemonChoice::Charmander;
     cout << "Professor Oak: A fiery choice! Charmander is yours!\n";
     break;
 
   case 2:
-    chosen_pokemon = Bulbasaur;
+    chosen_pokemon = PokemonChoice::Bulbasaur;
     cout << "Professor Oak: A fine choice! Bulbasaur is always ready to "
                  "grow on you!\n";
     break;
 
   case 3:
-    chosen_pokemon = Squirtle;
+    chosen_pokemon = PokemonChoice::Squirtle;
     cout << "Professor Oak: Splendid! Squirtle will keep you cool under "
                  "pressure!\n";
     break;
@@ -58,12 +66,12 @@ int main() {
   default:
     cout << "Professor Oak: Hmm, that doesn't seem right. Let me choose "
                  "for you...\n";
-    chosen_pokemon = Charmander; 
+    chosen_pokemon = PokemonChoice::Charmander; 
     cout << "Professor Oak: Just kidding! Let's go with Charmender, the "
                  "surprise guest!\n";
     break;
   }
-  cout << "Professor Oak: " << (chosen_pokemon == Charmander ? "Charmander" : chosen_pokemon == Bulbasaur ? "Bulbasaur" : "Squirtle")
+  cout << "Professor Oak: " << (chosen_pokemon == PokemonChoice::Charmander ? "Charmander" : chosen_pokemon == PokemonChoice::Bulbasaur ? "Bulbasaur" : "Squirtle")
   << " and you, " << player_name << ", are going to be the best of friends!\n";
 cout << "Professor Oak: Your journey begins now! Get ready to explore the vast world of Pokemon!\n";
 
