@@ -4,9 +4,10 @@
 #include <limits> // Include this header to use numeric_limits
 #include <string>
 using namespace std;
-
+class Player;
+class Pokemon;
+enum PokemonType;
 // Pokemon class definition
-#include "Player.hpp"
 
 // ProfessorOak class definition
 class ProfessorOak {

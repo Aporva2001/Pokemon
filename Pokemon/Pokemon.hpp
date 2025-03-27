@@ -1,6 +1,7 @@
 using namespace std;
 #include<string>
-#include"PokemonType.hpp"
+
+enum class PokemonType;
 
 class Pokemon{
 public:
@@ -18,6 +19,6 @@ public:
 
   // Destructor
   ~Pokemon();
-  
+
   void attack();
 };
