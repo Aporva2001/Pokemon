@@ -1,24 +1,26 @@
+#pragma once
+#include <string>
+#include "PokemonType.hpp"
+
 using namespace std;
-#include<string>
 
-enum class PokemonType;
-
-class Pokemon{
+class Pokemon {
 public:
-  string name;
-  PokemonType type;
-  int health;
-  
-  Pokemon();
+    string name;
+    PokemonType type;
+    int health;
 
-  // Parameterized constructor
-  Pokemon(string p_name, PokemonType p_type, int p_health);
+    // Default constructor
+    Pokemon();
 
-  // Copy constructor
-  Pokemon(const Pokemon &other);
+    // Parameterized constructor
+    Pokemon(string p_name, PokemonType p_type, int p_health);
 
-  // Destructor
-  ~Pokemon();
+    // Copy constructor
+    Pokemon(const Pokemon& other);
 
-  void attack();
+    // Destructor
+    ~Pokemon();
+
+    void attack();
 };
