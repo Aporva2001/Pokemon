@@ -3,8 +3,9 @@
 class Player;
 
 class Game {
-
-public:
+	private:
+		Grass forestGrass;
+	public:
 	Game();
 	void gameLoop(Player& player);
 };
