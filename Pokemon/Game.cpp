@@ -18,7 +18,6 @@ void Game::gameLoop(Player& player) {
     while (keepPlaying) {
         // Clear console before showing options
         Utility::clearConsole();
-
         // Display options to the player
         cout << "\nWhat would you like to do next, " << player.name << "?\n";
         cout << "1. Battle Wild Pokémon\n";
@@ -34,18 +33,17 @@ void Game::gameLoop(Player& player) {
         // Process the player's choice and display the corresponding message
         switch (choice) {
         case 1: {
-            // Create a scope within case 1
             WildEncounterManager encounterManager;
-            Pokemon encounteredPokemon =
-                encounterManager.getRandomPokemonFromGrass(forestGrass);
-            cout << "A wild " << encounteredPokemon.name << " appeared!\n";
+            Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+            battleManager.startBattle(player, wildPokemon);
             break;
+
         }
         case 2: {
-            cout << "You head to the PokeCenter. \n";
-            player.chosenPokemon.heal();
-            cout << player.chosenPokemon.name << "'s health is fully restored!\\n";
-            break;
+            cout << "You head to the PokeCenter.\\n";
+                player.chosenPokemon.heal(); // Heal the player's Pokémon
+                std::cout << player.chosenPokemon.name << "'s health is fully restored!\\n";
+                break;
         }
         case 3: {
             cout << "You march up to the Gym, but it's closed for renovations. Seems "
