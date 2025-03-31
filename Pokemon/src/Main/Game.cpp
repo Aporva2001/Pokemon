@@ -1,23 +1,44 @@
-#include "Player.hpp"
-#include "Game.hpp"
-#include "Utility.hpp"
-#include "WildEncounterManager.hpp"
-
+#include "../../include/Main/Game.hpp"
+#include "../../include/Battle/BattleManager.hpp"
+#include "../../include/Battle/WildEncounterManager.hpp"
+#include "../../include/Character/Player/Player.hpp"
+#include "../../include/Pokemon/PokemonType.hpp"
+#include "../../include/Pokemon/Pokemons/Caterpie.hpp"
+#include "../../include/Pokemon/Pokemons/Pidgey.hpp"
+#include "../../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../../include/Utility/Utility.hpp"
 #include <iostream>
-using namespace std;
-namespace N_Main{
-    Game::Game() {
 
+namespace N_Main
+{
+    using namespace std;
+    using namespace N_Utility;
+    //using namespace N_Pokemon;
+    using namespace N_Pokemon::N_Pokemons;
+    using namespace N_Battle;
+    using namespace N_Character::N_Player;
+
+    Game::Game() {
+        // Create a sample grass environment with actual Pokemon objects
+        forestGrass = { "Forest",
+                       {N_Pokemon::Pokemon("Pidgey", PokemonType::NORMAL, 40, 7),
+                        N_Pokemon::Pokemon("Caterpie", PokemonType::BUG, 35, 5),
+                        N_Pokemon::Pokemon("Zubat", PokemonType::POISON, 30, 8)},
+                       70 };
     }
-    
-    void Game::gameLoop(Player& player) {
-    
+
+    void Game::gameLoop(N_Character::N_Player::Player& player) {
+
         int choice;
         bool keepPlaying = true;
-    
+        BattleManager battleManager;
+        WildEncounterManager encounterManager;
+        N_Pokemon::Pokemon wildPokemon;
+
         while (keepPlaying) {
             // Clear console before showing options
-            Utility::clearConsole();
+            N_Utility::Utility::clearConsole();
+
             // Display options to the player
             cout << "\nWhat would you like to do next, " << player.name << "?\n";
             cout << "1. Battle Wild Pokémon\n";
@@ -27,23 +48,19 @@ namespace N_Main{
             cout << "5. Quit\n";
             cout << "Enter your choice: ";
             cin >> choice;
-    
-            Utility::clearInputBuffer(); // Clear the input buffer
-    
+
+            N_Utility::Utility::clearInputBuffer(); // Clear the input buffer
+
             // Process the player's choice and display the corresponding message
             switch (choice) {
             case 1: {
-                WildEncounterManager encounterManager;
-                Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+                wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
                 battleManager.startBattle(player, wildPokemon);
                 break;
-    
             }
             case 2: {
-                cout << "You head to the PokeCenter.\\n";
-                    player.chosenPokemon.heal(); // Heal the player's Pokémon
-                    std::cout << player.chosenPokemon.name << "'s health is fully restored!\\n";
-                    break;
+                visitPokeCenter(player);
+                break;
             }
             case 3: {
                 cout << "You march up to the Gym, but it's closed for renovations. Seems "
@@ -71,12 +88,26 @@ namespace N_Main{
                 break;
             }
             }
-    
+
             // Wait for Enter key before the screen is cleared and the menu is shown
             // again
-            Utility::waitForEnter();
+            N_Utility::Utility::waitForEnter();
         }
-    
+
         cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+    }
+
+    void Game::visitPokeCenter(Player& player) {
+        if (player.chosenPokemon.health == player.chosenPokemon.maxHealth) {
+            std::cout << "Your Pokémon is already at full health!\n";
+        }
+        else {
+            std::cout << "You head to the PokeCenter.\n";
+            std::cout << "Healing your Pokémon...\n";
+            N_Utility::Utility::waitForEnter(); // Simulate a short pause for the
+            // healing process
+            player.chosenPokemon.heal();        // Heal the player's Pokémon
+            std::cout << player.chosenPokemon.name << "'s health is fully restored!\n";
+        }
     }
 }

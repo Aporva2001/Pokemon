@@ -1,11 +1,15 @@
-// grass.hpp
-#include<string>
-#include<vector>
-using namespace std;
-namespace N_Pokemon{
-struct Grass {
-    string environmentType;  // Example: "Forest", "Cave", "Riverbank"
-    vector<Pokemon> wildPokemonList;  // List of wild Pokémon that live in this grass
-    int encounterRate;  // Likelihood of encountering a wild Pokémon, out of 100
-};
+#pragma once
+#include <string>
+#include <vector>
+
+namespace N_Pokemon {
+    
+    class Pokemon;
+    
+    struct Grass {
+        std::string environmentType;  // Example: "Forest", "Cave", "Riverbank"
+        std::vector<Pokemon> wildPokemonList;  // List of wild Pokémon in this grass
+        int encounterRate;  // Likelihood of encountering a wild Pokémon, out of 100
+    };
+
 }
