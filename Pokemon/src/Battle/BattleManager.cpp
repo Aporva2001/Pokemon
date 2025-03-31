@@ -1,6 +1,8 @@
 #include<iostream>
-#include"BattleManager.hpp"
-#include"Pokemon.hpp"
+#include"../include/Battle/BattleManager.hpp"
+
+#include"../include/Pokemon/Pokemon.hpp"
+
 using namespace std;
 
     void BattleManager :: battle(Pokemon &playerPokemon, Pokemon &wildPokemon) {

@@ -1,4 +1,4 @@
-#include "Pokemon.hpp"
+#include "./Pokemon/Pokemon.hpp"
 
 struct BattleState {
     Pokemon *playerPokemon;  // Pointer to the player's Pokémon
