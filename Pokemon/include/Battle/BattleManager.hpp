@@ -1,5 +1,6 @@
 #include "BattleState.hpp"
 #include "./Character/Player/Player.hpp"
+namespace N_Battle{
 
 class BattleManager {
 public:
@@ -11,3 +12,4 @@ private:
     void handleBattleOutcome();
     void updateBattleState(); // Method to update the battle state after each turn
 };
+}

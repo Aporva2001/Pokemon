@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+namespace N_Pokemon{
 // Default constructor
 Pokemon::Pokemon() : name("Unknown"), type(PokemonType::NORMAL), health(50) {}
 
@@ -37,4 +38,5 @@ bool Pokemon :: isFainted() const{
 
 void Pokemon :: heal() {
     health= maxHealth;
+}
 }

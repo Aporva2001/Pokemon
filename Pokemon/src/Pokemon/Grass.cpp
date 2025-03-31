@@ -1,5 +1,5 @@
 #include"Game.hpp"
-
+namespace N_Pokemon{
 Game::Game() { 
     // Create a sample grass environment with actual Pokemon objects 
     forestGrass = {"Forest", 
@@ -8,4 +8,4 @@ Game::Game() {
                             Pokemon("Zubat", PokemonType::POISON, 30)}, 
                             70}; 
      }
-    
+}

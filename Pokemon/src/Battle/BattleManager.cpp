@@ -2,8 +2,8 @@
 #include"../include/Battle/BattleManager.hpp"
 
 #include"../include/Pokemon/Pokemon.hpp"
-
 using namespace std;
+namespace N_Battle{
 
     void BattleManager :: battle(Pokemon &playerPokemon, Pokemon &wildPokemon) {
         cout<< "A wild " << wildPokemon.name << " appeared!\\n";
@@ -68,3 +68,4 @@ using namespace std;
             battleState.battleOngoing = false;
         }
     }
+}

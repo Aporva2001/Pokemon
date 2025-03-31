@@ -3,7 +3,7 @@
 #include "PokemonType.hpp"
 
 using namespace std;
-
+namespace N_Pokemon{
 class Pokemon {
 public:
     string name;
@@ -29,3 +29,4 @@ public:
     void TakeDamage(int damage);
     bool isFainted() const;
 };
+}
