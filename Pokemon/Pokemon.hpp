@@ -10,6 +10,7 @@ public:
     PokemonType type;
     int health;
     int maxHealth;
+    int attackPower;
 
     // Default constructor
     Pokemon();
@@ -24,6 +25,7 @@ public:
     ~Pokemon();
 
     void attack(Pokemon &target);
+    void heal();
     void TakeDamage(int damage);
     bool isFainted() const;
 };
