@@ -47,9 +47,9 @@ namespace N_Pokemon {
   void N_Pokemon::Pokemon::heal() { health = maxHealth; }
   
   // Attack another Pokemon
-  void N_Pokemon::Pokemon::attack(Pokemon &target) {
-    std::cout << name << " attacks " << target.name << " for " << attackPower
-              << " damage!\n";
-    target.takeDamage(attackPower);
-  }
+  // void N_Pokemon::Pokemon::attack(Pokemon &target) {
+  //   std::cout << name << " attacks " << target.name << " for " << attackPower
+  //             << " damage!\n";
+  //   target.takeDamage(attackPower);
+  // }
 } // namespace N_Pokemon

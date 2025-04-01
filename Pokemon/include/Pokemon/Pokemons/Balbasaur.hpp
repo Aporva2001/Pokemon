@@ -10,7 +10,7 @@ namespace N_Pokemon {
     
     public:
       Balbasaur();
-      
+      void attack(Pokemon *target) override;
     };
     
   }
