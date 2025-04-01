@@ -22,7 +22,7 @@ void BattleManager::startBattle(N_Player::Player &player, N_Pokemon::Pokemon &wi
 void BattleManager::battle() {
   while (battleState.battleOngoing) {
     if (battleState.playerTurn) {
-      battleState.playerPokemon.attack(battleState.wildPokemon);
+      battleState.playerPokemon.thunderShock(battleState.wildPokemon);
     } else {
       battleState.wildPokemon.attack(battleState.playerPokemon);
     }
