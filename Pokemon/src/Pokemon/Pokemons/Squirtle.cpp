@@ -8,9 +8,12 @@ namespace N_Pokemon {
     
     Squirtle::Squirtle() : Pokemon("Squirtle", PokemonType::GRASS, 100, 35) {}
     
-    void Squirtle::waterSpalsh(Pokemon &target) {
+    void Squirtle::waterSplash(Pokemon &target) {
       cout << name << " uses Water splash on " << target.name << "!\n";
       target.takeDamage(20);
+    }
+    void Squirtle::attack(Pokemon *target){
+      waterSplash(target);
     }
   }
 }
