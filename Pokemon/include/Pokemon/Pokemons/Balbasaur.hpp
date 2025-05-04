@@ -4,10 +4,13 @@
 namespace N_Pokemon {
   namespace N_Pokemons {
     
-    class Charmander : public Pokemon {
+    class Balbasaur : public Pokemon {
+    private:
+    void vineWhip(Pokemon &target);
+    
     public:
-      Charmander();
-      void flameThrower(Pokemon &target);
+      Balbasaur();
+      
     };
     
   }
